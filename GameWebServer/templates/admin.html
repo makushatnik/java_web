@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Shutdown server</title>
+</head>
+<body>
+<img src="jetty.png" alt="Jetty"/><br>
+Status: <b>${status}</b><br>
+<form action="admin" method="get">
+    Enter the timeout: <input type="text" name="shutdown" value="1000" size="5"/>
+    <input type="submit" value="Shutdown server!"/>
+</form>
+</body>
+</html>

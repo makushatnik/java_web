@@ -1,0 +1,30 @@
+<config>
+    <server>
+        <port>8080</port>
+        <use_jdbc>1</use_jdbc>
+        <shutdown_time>5000</shutdown_time>
+	</server>
+    <jdbc>
+        <driver>com.mysql.jdbc.Driver</driver>
+        <url>jdbc:mysql://localhost:3306/game</url>
+        <username>dbuser</username>
+        <password>s3cret</password>
+    </jdbc>
+    <hibernate>
+        <dialect>org.hibernate.dialect.MySQLDialect</dialect>
+        <driver>com.mysql.jdbc.Driver</driver>
+        <url>jdbc:mysql://localhost:3306/game</url>
+        <username>dbuser</username>
+        <password>s3cret</password>
+		<show_sql>true</show_sql>
+        <hbm2ddl_auto>create</hbm2ddl_auto>
+    </hibernate>
+    <threads>
+
+    </threads>
+    <game>
+        <minScore>0</minScore>
+        <maxScore>30</maxScore>
+        <time>15</time>
+    </game>
+</config>

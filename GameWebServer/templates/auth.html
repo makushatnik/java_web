@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration</title>
+</head>
+<body>
+    <p>Registration status: ${status}</p>
+
+    <p><text color="blue">Play the game.</text></p>
+    <form name="auth" action="game.html" method="post">
+        <input type="hidden" name="sessionId" value="${sessionId}"/>
+        <input type="submit" value="Play!"/>
+    </form>
+
+    <p><text color="red">This button is for exit:</text></p>
+    <form action="/exit" method="post">
+        <input type="submit" value="Exit"/>
+    </form>
+
+</body>
+</html>

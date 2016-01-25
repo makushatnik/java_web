@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Authorization</title>
+</head>
+<body>
+    <p>Sign up status: ${status}</p>
+
+    <form action="/auth/signin" method="get">
+        Login: <input type="hidden" name="name" value="${name}"/><br><br>
+        Password: <input type="hidden" name="pass" value="${pass}"/><br><br>
+        <input type="submit" value="Authorize"/>
+    </form>
+</body>
+</html>

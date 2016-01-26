@@ -30,7 +30,7 @@
     <spring:eval expression="contact.id == null?labelNew:labelUpdate" var="formTitle"/>
     <h1>${formTitle}</h1>
     <div id="contactUpdate">
-        <form:form modelAttribute="contact" id="contactUpdateForm" method="post">
+        <form:form modelAttribute="contact" id="contactUpdateForm" method="post" enctype="multipart/form-data">
             <c:if test="${not empty contact}">
                 <div id="message" class="${message.type}">${message.message}</div>
             </c:if>
@@ -40,25 +40,31 @@
             <div>
                 <form:errors path="firstName" cssClass="error"/>
             </div>
-            </p>
+            <p/>
             <form:label path="lastName">${labelLastName}*</form:label>
             <form:input path="lastName"/>
             <div>
                 <form:errors path="lastName" cssClass="error"/>
             </div>
-            </p>
+            <p/>
             <form:label path="birthDate">${labelBirthDate}</form:label>
             <form:input path="birthDate" id="birthDate"/>
             <div>
                 <form:errors path="birthDate" cssClass="error"/>
             </div>
-            </p>
+            <p/>
             <form:label path="description">${labelDescription}</form:label>
             <form:textarea cols="60" rows="8" path="description" id="contactDescription"/>
             <div>
                 <form:errors path="description" cssClass="error"/>
             </div>
-            </p>
+            <p/>
+
+            <label for="file">
+                ${labelPhoto}
+            </label>
+            <input name="file" type="file"/>
+            <p/>
 
             <form:hidden path="version"/>
 

@@ -1,0 +1,12 @@
+INSERT INTO contact VALUES('', 'Chris', 'Schaefer', '1981-05-03', '', '', '');
+INSERT INTO contact VALUES('', 'Scott', 'Tiger', '1990-11-02', '', '', '');
+INSERT INTO contact VALUES('', 'John', 'Smith', '1964-02-28', '', '', '');
+INSERT INTO contact VALUES('', 'Peter', 'Jackson', '1994-1-10', '', '', '');
+INSERT INTO contact VALUES('', 'Jacky', 'Chan', '1955-10-31', '', '', '');
+INSERT INTO contact VALUES('', 'Susan', 'Boyle', '1970-05-06', '', '', '');
+INSERT INTO contact VALUES('', 'Tinner', 'Turner', '1967-04-30', '', '', '');
+INSERT INTO contact VALUES('', 'Lotus', 'Notes', '1990-02-28', '', '', '');
+INSERT INTO contact VALUES('', 'Henry', 'Dickson', '1997-06-30', '', '', '');
+INSERT INTO contact VALUES('', 'Sam', 'Davis', '2001-01-31', '', '', '');
+INSERT INTO contact VALUES('', 'Max', 'Beckham', '2002-02-01', '', '', '');
+INSERT INTO contact VALUES('', 'Paul', 'Simon', '2002-02-28', '', '', '');

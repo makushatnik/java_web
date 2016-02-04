@@ -13,14 +13,4 @@ GameWebServer
 maven
 -----------------------------------------------------------------
 ѕростое приложение под Wildfly + Maven + Servlet + EJB + MySQL
-Deploy проходит и работает, если из war-файла выбросить dom4j.jar (вставл€етс€ Hibernate)
-“акже дл€ успешной работы добавил конфиг в standalone.xml сервера:
-
-<subsystem xmlns="urn:jboss:domain:ee:4.0">
-
-   <global-modules>
-
-      <module name="org.dom4j" slot="main"/>
-
-   </global-modules>
-...
+ƒобавлены 2 jsp, sql-файл, сервлет дл€ удалени€ пользователей, сервлет дл€ редактировани€ существующего\создани€ нового, redirect на главную страницу.

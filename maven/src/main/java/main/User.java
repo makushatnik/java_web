@@ -1,52 +1,82 @@
 package main;
 
+import static javax.persistence.GenerationType.IDENTITY;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "accounts")
+@NamedQueries({
+	@NamedQuery(name = "User.getAll", query = "select u from User u"),
+	@NamedQuery(name = "User.findById", query = "select u from User u where u.id=:id")
+})
 public class User {
+    
+    private Long id;
+    
+    private String name;
+ 
+    private String lastName;
+ 
+    private int age;
+ 
+    public User() {
+    }
+ 
+    public User(String name, String lastName, int age) {
+ 
+        this.name = name;
+        this.lastName = lastName;
+        this.age = age;
+    }
     @Id
-    @GeneratedValue
-    private int id;
-    @Column(nullable = false, unique = true)
-    private String login;
-    @Column(nullable = false)
-    private String password;
- 
-    public int getId() {
-        return id;
+    @GeneratedValue(strategy = IDENTITY)
+    public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+	@Column(name = "first_name", nullable = false)
+	public String getName() {
+        return name;
     }
  
-    public void setId(int id) {
-        this.id = id;
+    public void setName(String name) {
+        this.name = name;
+    }
+    @Column(name = "last_name", nullable = false)
+    public String getLastName() {
+        return lastName;
     }
  
-    public String getLogin() {
-        return login;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+    @Column(name = "age", nullable = false)
+    public int getAge() {
+        return age;
     }
  
-    public void setLogin(String login) {
-        this.login = login;
-    }
- 
-    public String getPassword() {
-        return password;
-    }
- 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setAge(int age) {
+        this.age = age;
     }
  
     @Override
     public String toString() {
         return "User{" +
                 "id=" + id +
-                ", login='" + login + '\'' +
-                ", password='" + password + '\'' +
+                ", first_name='" + name + '\'' +
+                ", last_name='" + lastName + '\'' +
+                ", age='" + age + '\'' +
                 '}';
     }
 }

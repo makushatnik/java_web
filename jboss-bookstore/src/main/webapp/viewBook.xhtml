@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+	<!-- 
+		Replace path to template, title, header and body
+		with actual data.
+	 -->
+	<ui:composition template="/templates/layout.xhtml">
+		<f:metadata>
+			<f:viewParam name="id" value="#{bookController.book.id}"/>
+			<f:viewAction action="#{bookController.doFindBookById()}"/>
+		</f:metadata>
+		
+		<ui:define name="title">View the Book</ui:define>
+		<ui:define name="content">
+			<h:panelGrid columns="2">
+				<h:outputLabel value="Название : "/>
+				<h:outputText value="#{bookController.book.title}"/>
+			
+				<h:outputLabel value="Цена : "/>
+				<h:outputText value="#{bookController.book.price}"/>
+			
+				<h:outputLabel value="Описание : "/>
+				<h:outputText value="#{bookController.book.descr}" cols="16" rows="3"/>
+			
+				<h:outputLabel value="Количество страниц : "/>
+				<h:outputText value="#{bookController.book.nbOfPage}"/>
+			
+				<h:outputLabel value="Иллюстрации : "/>
+				<h:selectBooleanCheckbox value="#{bookController.book.illustrs}"/>
+			</h:panelGrid>
+		</ui:define>
+	</ui:composition>
+
+</html>

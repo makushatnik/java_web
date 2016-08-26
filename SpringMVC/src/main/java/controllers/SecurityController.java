@@ -19,10 +19,12 @@ import java.util.Locale;
 public class SecurityController {
     private final Logger logger = LoggerFactory.getLogger(SecurityController.class);
     private MessageSource messageSource;
+    
     @Autowired
     public void setMessageSource(MessageSource messageSource) {
         this.messageSource = messageSource;
     }
+    
     @RequestMapping("/loginfail")
     public String loginFail(Model uiModel, Locale locale) {
         logger.info("Login failed detected");

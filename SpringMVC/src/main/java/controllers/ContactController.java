@@ -39,14 +39,17 @@ public class ContactController {
     private final Logger logger = LoggerFactory.getLogger(ContactController.class);
     private ContactService contactService;
     private MessageSource messageSource;
+    
     @Autowired
     public void setContactService(ContactService contactService) {
         this.contactService = contactService;
     }
+    
     @Autowired
     public void setMessageSource(MessageSource messageSource) {
         this.messageSource = messageSource;
     }
+    
     @RequestMapping(method = RequestMethod.GET)
     public String list(Model uiModel) {
         logger.info("Listing contacts");
@@ -55,12 +58,14 @@ public class ContactController {
         logger.info("No. of contacts: " + contacts.size());
         return "contacts/list";
     }
+    
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public String show(@PathVariable("id") Long id, Model uiModel) {
         Contact cont = contactService.findById(id);
         uiModel.addAttribute("contact", cont);
         return "contacts/show";
     }
+    
     @RequestMapping(value = "/{id}", params = "form", method = RequestMethod.POST)
     public String update(@Valid Contact cont, BindingResult bindingResult, Model uiModel,
                          HttpServletRequest req, RedirectAttributes attr, Locale locale) {
@@ -77,11 +82,13 @@ public class ContactController {
         contactService.save(cont);
         return "redirect:/contacts/" + UrlUtil.encodeUrlPathSegment(cont.getId().toString(), req);
     }
+    
     @RequestMapping(value = "/{id}", params = "form", method = RequestMethod.GET)
     public String updateForm(@PathVariable("id") Long id, Model uiModel) {
         uiModel.addAttribute("contact", contactService.findById(id));
         return "contacts/update";
     }
+    
     @RequestMapping(params = "form", method = RequestMethod.POST)
     public String create(@Valid Contact cont, BindingResult bindingResult, Model uiModel,
                          HttpServletRequest req, RedirectAttributes attr, Locale locale,
@@ -117,6 +124,7 @@ public class ContactController {
         contactService.save(cont);
         return "redirect:/contacts/" + UrlUtil.encodeUrlPathSegment(cont.getId().toString(), req);
     }
+    
     @PreAuthorize("isAuthenticated()")
     @RequestMapping(params = "form", method = RequestMethod.GET)
     public String createForm(Model uiModel) {
@@ -124,6 +132,7 @@ public class ContactController {
         uiModel.addAttribute("contact", cont);
         return "contacts/create";
     }
+    
     @RequestMapping(value = "/listgrid", method = RequestMethod.GET, produces = "application/json")
     @ResponseBody
     public ContactGrid listgrid(@RequestParam(value = "page", required = false) Integer page,
@@ -156,6 +165,7 @@ public class ContactController {
         contactGrid.setContactData(Lists.newArrayList(contactPage.iterator()));
         return contactGrid;
     }
+    
     @RequestMapping(value = "/photo/{id}", method = RequestMethod.GET)
     @ResponseBody
     public byte[] downloadPhoto(@PathVariable("id") Long id) {
